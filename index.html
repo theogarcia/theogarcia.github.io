@@ -1,90 +1,240 @@
 <!DOCTYPE html>
-a {
-color: var(--accent);
-text-decoration: none;
-font-weight: 500;
-}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Votre Nom – Portfolio</title>
+  <meta name="description" content="Portfolio personnel hébergé sur GitHub Pages" />
 
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-a:hover {
-text-decoration: underline;
-}
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020617cc;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --accent-2: #a78bfa;
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-footer {
-margin-top: 4rem;
-text-align: center;
-font-size: 0.85rem;
-color: var(--muted);
-}
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, #1e293b, transparent),
+                  radial-gradient(800px 400px at 90% 10%, #312e81, transparent),
+                  var(--bg);
+      overflow-x: hidden;
+    }
 
+    /* --- Hero --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
 
-@media (max-width: 600px) {
-h1 {
-font-size: 2.2rem;
-}
-}
-</style>
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #020617;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hero a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(34,211,238,0.25);
+    }
+
+    /* --- Sections --- */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* --- Cards grid --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border: 1px solid rgba(148,163,184,0.15);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: transform 0.25s ease, border 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      margin-bottom: 0.6rem;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* --- Footer --- */
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* --- Reveal animation --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
-<main class="container">
-<header>
-<h1>Théo Garcia</h1>
-<h2>Oceanographer</h2>
-</header>
 
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <h1>Votre Nom</h1>
+      <p>
+        Développeur / Étudiant / Ingénieur passionné par le web,
+        le code propre et les projets qui ont du sens.
+      </p>
+      <a href="#projets">Voir mes projets</a>
+    </div>
+  </div>
 
-<section>
-<h3>À propos</h3>
-<div class="card">
-<p>
-Bienvenue sur ma page GitHub Pages 👋<br />
-Présentez-vous ici en quelques lignes : ce que vous faites, ce que vous aimez,
-vos centres d'intérêt ou votre domaine d'expertise.
-</p>
-</div>
-</section>
+  <!-- ABOUT -->
+  <section class="reveal">
+    <h2>À propos</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>👨‍💻 Profil</h3>
+        <p>
+          Présente-toi ici : ton parcours, ce que tu étudies ou ton métier,
+          et ce qui te motive dans la tech.
+        </p>
+      </div>
+      <div class="card">
+        <h3>🛠️ Compétences</h3>
+        <p>
+          HTML, CSS, JavaScript, Python, Git, React, Linux…
+        </p>
+      </div>
+      <div class="card">
+        <h3>🎯 Objectifs</h3>
+        <p>
+          Stage, alternance, projets open-source, freelance, apprentissage continu.
+        </p>
+      </div>
+    </div>
+  </section>
 
+  <!-- PROJECTS -->
+  <section id="projets" class="reveal">
+    <h2>Projets</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Projet 1</h3>
+        <p>
+          Description courte du projet, stack utilisée, objectif et lien GitHub.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Projet 2</h3>
+        <p>
+          Un autre projet cool dont tu es fier 👌
+        </p>
+      </div>
+      <div class="card">
+        <h3>Projet 3</h3>
+        <p>
+          TP, site perso, app, bot, etc.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<section>
-<h3>Projets</h3>
+  <!-- CONTACT -->
+  <section class="reveal">
+    <h2>Contact</h2>
+    <div class="grid">
+      <div class="card">
+        <p>
+          📧 Email : ton@email.com<br />
+          💼 GitHub : github.com/tonpseudo<br />
+          🔗 LinkedIn : lien vers ton profil
+        </p>
+      </div>
+    </div>
+  </section>
 
+  <footer>
+    © 2026 – Fait avec ❤️ et GitHub Pages
+  </footer>
 
-<div class="card">
-<h4>Nom du projet</h4>
-<p>
-Courte description du projet. Expliquez le but, les technologies utilisées
-et ce que vous avez appris.
-</p>
-<p><a href="#">Voir sur GitHub →</a></p>
-</div>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
 
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
 
-<div class="card">
-<h4>Autre projet</h4>
-<p>
-Un autre projet intéressant, un TP, un site web, une app, etc.
-</p>
-<p><a href="#">Voir sur GitHub →</a></p>
-</div>
-</section>
+    reveals.forEach(r => observer.observe(r));
+  </script>
 
-
-<section>
-<h3>Contact</h3>
-<div class="card">
-<p>
-📧 Email : votre.email@email.com<br />
-💼 GitHub : <a href="https://github.com/votre-pseudo">@votre-pseudo</a><br />
-🔗 LinkedIn : <a href="#">Votre profil</a>
-</p>
-</div>
-</section>
-
-
-<footer>
-© 2026 – Hébergé avec GitHub Pages
-</footer>
-</main>
 </body>
 </html>
