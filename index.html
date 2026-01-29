@@ -73,6 +73,21 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 30px rgba(34,211,238,0.25);
     }
+    
+    .avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    display: block;
+    border: 3px solid transparent;
+    background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(90deg, var(--accent), var(--accent-2)) border-box;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
 
     /* --- Sections --- */
     section {
@@ -144,6 +159,7 @@
   <!-- HERO -->
   <div class="hero">
     <div>
+      <img src="theo.jpg" alt="Photo de Votre Nom" class="avatar" />
       <h1>Théo Garcia</h1>
       <p>
         As a postdoctoral researcher at the Institut de Mathématiques de Marseille, I am interested in applied statistics in the field of marine sciences. 
